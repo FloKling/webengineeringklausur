@@ -1,0 +1,274 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{cancel}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{graphicx}
+\usepackage{multirow, tabularx}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{color}
+
+\usetikzlibrary{calc, arrows, decorations.markings, shapes.symbols, positioning}
+
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\lstdefinelanguage{JavaScript}{
+	morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	morecomment=[s]{/*}{*/},
+	morecomment=[l]//,
+	morestring=[b]",
+	morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+	language=html,
+	sensitive=true, 
+	alsoletter={<>=-},
+	otherkeywords={
+		% HTML tags
+		<html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+		<canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+	},  
+	ndkeywords={
+		% General
+		=,
+		% HTML attributes
+		charset=, id=, width=, height=,
+		% CSS properties
+		border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+	},  
+	morecomment=[s]{<!--}{-->},
+	tag=[s]
+}
+
+\lstset{%
+	% Basic design
+	backgroundcolor=\color{editorGray},
+	basicstyle={\small\ttfamily},   
+	frame=l,
+	% Line numbers
+	xleftmargin={0.75cm},
+	numbers=left,
+	stepnumber=1,
+	firstnumber=1,
+	numberfirstline=true,
+	% Code design   
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{darkgray}\ttfamily,
+	ndkeywordstyle=\color{editorGreen}\bfseries,
+	stringstyle=\color{editorOcher},
+	% Code
+	language=HTML5,
+	alsolanguage=JavaScript,
+	alsodigit={.:;},
+	tabsize=2,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true,        
+	% Support for German umlauts
+	literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+
+
+\begin{document}
+	
+	\title{Klausurzusammenfassung Webengineering}
+	\author{Florian Kling}
+	
+	\maketitle
+	
+	\newpage
+	
+	
+	\section{HTML}
+	
+		\subsection{Standard HTML Aufbau}
+		
+		\begin{lstlisting}
+			<!DOCTYPE html>
+			<html>
+				<head>
+					<title>Titel der Webseite</title>
+				</head>
+				<body>
+					Hello World!
+				</body>
+			</html>
+		\end{lstlisting}
+		
+		
+		\subsection{Tabellen}
+	
+
+			\begin{tabular}{p {0.4 \textwidth}  p {0.6 \textwidth} }
+				\begin{center}
+					\includegraphics[width=0.7\linewidth]{tabelle}
+				\end{center}
+			
+			& 	
+				\begin{lstlisting}
+<table border="1">
+	<tr>
+		<th>A</th>
+		<th>B</th>
+		<th>C</th>
+	</tr>
+	<tr>
+		<td colspan="2">1</td>
+		<td rowspan="2">2</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+</table>
+				\end{lstlisting}
+			\end{tabular}
+			
+		
+			\newpage
+	
+	
+		
+			
+			
+		\subsection{Listings}
+		
+			Es gibt folgende Listen-Style:
+			
+			\begin{itemize}
+				\item <ol type=''1''> $\rightarrow$ numerische Aufzählung
+				\item <ol type=''A''> $\rightarrow$ Alphabetische Aufzählung, große Buchstaben
+				\item <ol type=''a''> $\rightarrow$ Alphabetische Aufzählung, kleine Buchstaben
+				\item <ol type=''I''> $\rightarrow$ große Romanische Ziffern
+				\item <ol type=''i''> $\rightarrow$ kleine Romanische Ziffern
+			\end{itemize}
+			
+			Mit der start-Property kann festgelegt werden, mit welchem Zeichen begonnen wird. \newline
+			Mit der reverse-Property kann die Aufzählung rückwärts gestaltet werden.
+			
+	\section{JSP}
+	
+		\subsection{Java-Bean}
+			Eine Bean ist eine Java-Klasse die nur Variablen, getter und setter sowie einen leeren Konstruktor besitzt.
+			
+		\subsection{Variablen im JSP-Umfeld}
+			\begin{itemize}
+				\item request $\rightarrow$ Gültigkeitsbereich
+				\item response
+				\item session $\rightarrow$ Gültigkeitsbereich
+				\item pageContext $\rightarrow$ Gültigkeitsbereich
+				\item application $\rightarrow$ Gültigkeitsbereich
+				\item config
+				\item out
+			\end{itemize}
+		
+		\subsection{Gültigkeitsbereiche}
+		
+		\begin{tabular}{|p {0.2 \textwidth} | p {0.8 \textwidth} |}
+			\hline
+			\textbf{Name} & \textbf{Bedeutung} \\ \hline
+			application & Mit dem Starten der Applikation (bspw. durch Hochfahren des Tomcat) steht dieser Gültigkeitsbereich bis zum Beenden der Applikation zur Verfügung. Dieser ist der umfassendste Gültigkeitsbereich und sollte nur für Attribute genutzt werden, die wirklich für die gesamte Applikation von Bedeutung sind. \\ \hline
+			session & Eine Session umfasst eine Nutzersitzung und umfasst mehrere Anfragen. So kann der Status einer Benutzers während der Nutzung gespeichert werden (bspw. ein Warenkorb). Ein ausführliches Kapitel zum Umgang mit Session und dabei zu Beachtendes folgt im weiteren Verlauf des Tutorials. \\ \hline
+			request & Dieser Gültigkeitsbereich umfasst genau eine Anfrage eines Nutzers. Aufgrund eines möglichen Forwardings der Anfrage an weitere Servlets bzw. JSPs kann ein Request sich über mehrere JSPs oder Servlets erstrecken. \\ \hline
+			page & Dieser Gültigkeitsbereich existiert nur in JSPs und ist nur innerhalb genau einer JSP gültig. Bei einem Forwarding gehen Attribute dieses Gültigkeitsbereichs verloren. \\ \hline
+		\end{tabular}
+		
+						
+		\subsection{JSP-Snippets}
+		
+		
+			Oberste Zeile einer JSP-Seite:
+			
+			\begin{lstlisting}
+				<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+			\end{lstlisting}
+			
+			Einfache Ausgaben
+						
+			\begin{lstlisting}
+				<%= 4+5 %>
+				<%= request.getHeader("User-Agent") %>
+			\end{lstlisting}
+			
+			Java-Umfeld erschaffen	
+			
+			\begin{lstlisting}
+				<% JAVA-CODE, bsp. for, if, usw. %>
+			\end{lstlisting}
+			
+			Instanz-Variablen, Methoden deklarieren
+			
+			\begin{lstlisting}
+				<%! 
+				private int counter = 0;
+				public synchronized int next () {			
+					counter++;
+					return counter; 
+				}
+				 %>
+			\end{lstlisting}
+			
+			Kommentare
+			
+			\begin{lstlisting}
+<%-- Kommentar --%>
+			\end{lstlisting}
+			
+			Bean laden
+			
+			\begin{lstlisting}
+<jsp:useBean id="Objektvariable" class="Klassenname"/>
+			\end{lstlisting}			
+			
+			Setter einer Bean aufrufen
+			
+			\begin{lstlisting}
+<jsp:setParameter name="Objektvariable" property="Variable" param="Wert"/>			
+			\end{lstlisting}
+			
+			Getter einer Bean aufrufen
+			
+			\begin{lstlisting}
+<jsp:getParameter name="Objektvariable" property="Variable"/>
+			\end{lstlisting}
+			
+			
+		\subsection{JSTL}	
+			
+			Import-Tag
+			
+			\begin{lstlisting}
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+			\end{lstlisting}
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{JSTL_Core}
+\end{center}
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{JSTL_Functions}
+\end{center}
+			
+			
+\end{document}
