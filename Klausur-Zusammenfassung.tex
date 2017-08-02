@@ -125,7 +125,7 @@
 
 			\begin{tabular}{p {0.4 \textwidth}  p {0.6 \textwidth} }
 				\begin{center}
-					\includegraphics[width=0.7\linewidth]{Klausurzusammenfassung/tabelle}
+					\includegraphics[width=0.7\linewidth]{tabelle}
 				\end{center}
 			
 			& 	
@@ -263,6 +263,127 @@
 \begin{center}
 	\includegraphics[width=0.7\linewidth]{JSTL_Functions}
 \end{center}
+
+	\section{CSS}
+		\subsection{CSS Selectors}
+			\begin{tabularx}{\textwidth}{|p{0.25\textwidth} | p{0.25\textwidth} | X|}
+				\hline
+				\textbf{Selector} & \textbf{Example} & \textbf{Example description} \\
+				\hline
+				\hline
+				.class 	& .intro 			& Selects all elements with class="intro" \\
+				\hline
+				\#id 	& \#firstname 		& Selects the element with id="firstname" \\
+				\hline
+				\* 		& * 				& Selects all elements \\
+				\hline
+				element & p 				& Selects all <p> elements \\
+				\hline
+				element,element & div, p 	& Selects all <div> elements and all <p> elements \\
+				\hline
+				element element & div p 	& Selects all <p> elements inside <div> elements \\
+				\hline
+				element>element & div > p 	& Selects all <p> elements where the parent is a <div> element \\
+				\hline
+				element+element & div + p 	& Selects all <p> elements that are placed immediately after <div> elements \\
+				\hline
+				element$\sim$element & p $\sim$ ul 	& Selects every <ul> element that are preceded by a <p> element \\
+				\hline
+				{[attribute]} & [target] 		& Selects all elements with a target attribute \\
+				\hline
+				{[attribute=value]} & [target=\_blank] 		& Selects all elements with a target="\_blank" \\
+				\hline
+				{[attribute$\sim$=value]} & [title$\sim$=flower] & Selects all elements with a title attribute containing the word "flower" \\
+				\hline
+				{[attribute|=value]} & [lang|=en] & Selects all elements with a lang attribute value starting with "en" \\
+				\hline
+				{[attribute\^=value]} & a[href\^="https"] & Selects every <a> element whose href attribute value begins with "https" \\
+				\hline
+				{[attribute\$=value]} & a[href\$=".pdf"] & Selects every <a> element whose href attribute value ends with ".pdf" \\
+				\hline
+				{[attribute*=value]} & a[href*="w3schools"] & Selects every <a> element whose href attribute value contains the substring "schools" \\
+				\hline
+				:active & a:active & Selects the active link \\
+				\hline
+				::after & p::after & Insert something after the content of each <p> element \\
+				\hline
+				::before & p::before & Insert something before the content of each <p> element \\
+				\hline
+				:checked & input:checked & Selects every checked <input> element \\
+				\hline
+				:disabled & input:disabled & Selects every disabled <input> element \\
+				
+				\hline
+				:empty & p:empty & Selects every <p> element that has no children (including text nodes) \\
+				\hline
+				:enabled & input:enabled & Selects every enabled <input> element \\
+				\hline
+				:first-child & p:first-child & Selects every <p> element that is the first child of its parent \\
+				\hline
+			\end{tabularx}
+			\begin{tabularx}{\textwidth}{|p{0.25\textwidth} | p{0.25\textwidth} | X|}
+				
+				\hline
+				::first-letter & p::first-letter & Selects the first letter of every <p> element \\
+				\hline
+				::first-line & p::first-line & Selects the first line of every <p> element \\
+				\hline
+				:first-of-type & p:first-of-type & Selects every <p> element that is the first <p> element of its parent \\
+				\hline
+				:focus & input:focus & Selects the input element which has focus \\
+				\hline
+				:hover & a:hover & Selects links on mouse over \\
+				\hline
+				:in-range & input:in-range & Selects input elements with a value within a specified range \\
+				\hline
+				:invalid & input:invalid & Selects all input elements with an invalid value \\
+				\hline
+				:lang(language) & p:lang(it) & Selects every <p> element with a lang attribute equal to "it" (Italian) \\
+				\hline
+				:last-child & p:last-child & Selects every <p> element that is the last child of its parent \\
+				\hline
+				:last-of-type & p:last-of-type & Selects every <p> element that is the last <p> element of its parent \\
+				\hline
+				:link & a:link & Selects all unvisited links \\
+				\hline
+				:not(selector) & :not(p) & Selects every element that is not a <p> element \\
+				\hline
+				:nth-child(n) & p:nth-child() & Selects every <p> element that is the second child of its parent \\
+				\hline
+				:nth-last-child(n) & p:nth-last-child() & Selects every <p> element that is the second child of its parent, counting from the last child \\
+				\hline
+				:nth-last-of-type(n) & p:nth-last-of-type() & Selects every <p> element that is the second <p> element of its parent, counting from the last child \\
+				\hline
+				:nth-of-type(n) & p:nth-of-type() & Selects every <p> element that is the second <p> element of its parent \\
+				\hline
+				:only-of-type & p:only-of-type & Selects every <p> element that is the only <p> element of its parent \\
+				\hline
+				:only-child & p:only-child & Selects every <p> element that is the only child of its parent \\
+				\hline
+				:optional & input:optional & Selects input elements with no "required" attribute \\
+				\hline
+				:out-of-range & input:out-of-range & Selects input elements with a value outside a specified range \\
+				\hline
+				:read-only & input:read-only & Selects input elements with the "readonly" attribute specified \\
+				\hline
+				:read-write & input:read-write & Selects input elements with the "readonly" attribute NOT specified \\
+				\hline
+				:required & input:required & Selects input elements with the "required" attribute specified \\
+				\hline
+			\end{tabularx}
+			\begin{tabularx}{\textwidth}{|p{0.25\textwidth} | p{0.25\textwidth} | X|}
+				\hline
+				:root & :root & Selects the document's root element \\
+				\hline
+				::selection & ::selection & Selects the portion of an element that is selected by a user  \\
+				\hline
+				:target & \#news:target & Selects the current active \#news element (clicked on a URL containing that anchor name) \\
+				\hline
+				:valid & input:valid & Selects all input elements with a valid value \\
+				\hline
+				:visited & a:visited & Selects all visited links \\
+				\hline
+			\end{tabularx}
 			
 			
 \end{document}
